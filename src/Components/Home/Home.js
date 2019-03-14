@@ -31,13 +31,15 @@ class Home extends Component{
     canvasInit(){
         this.canvas = this.refs.canvas;
         this.ctx = this.canvas.getContext('2d');
-        for(let i=0; i<= this.linesNumber; i++){
+        for(let i=0; i < this.linesNumber; i++){
             this.lines[i] = [];
-            for(let j=0; j<= this.vertices; j++){
+            for(let j=0; j <= this.vertices; j++){
                 let point = {
                     x: Math.cos(j/this.vertices * Math.PI*2),
                     y: Math.sin(j/this.vertices * Math.PI*2),
                 };
+                point._x = point.x;
+                point._y = point.y;
                 this.lines[i].push(point);
             }
         }
@@ -47,18 +49,25 @@ class Home extends Component{
     }
 
     update(){
-
+        for (let i=0; i < this.linesNumber; i++){
+            for (let j=0; j <= this.vertices; j++){
+                this.lines[i][j].x = this.lines[i][j]._x * this.radius * (1 - i/10);
+                this.lines[i][j].y = this.lines[i][j]._y* this.radius * (1 - i/10);
+            }
+        }
     }
 
     renderAnimation(){
         this.ctx.clearRect(0,0,this.width, this.height);
         this.ctx.strokeStyle = this.color;
 
-        for (let i=1; i <= this.vertices; i++){
-            this.ctx.beginPath();
-            this.ctx.moveTo(this.halfX + this.lines[i-1].x * this.radius, this.halfY + this.lines[i - 1].y * this.radius);
-            this.ctx.lineTo(this.halfX + this.lines[i].x * this.radius, this.halfY + this.lines[i].y * this.radius);
-            this.ctx.stroke();
+        for (let i=0; i < this.linesNumber; i++){
+            for (let j=1; j <= this.vertices; j++){
+                this.ctx.beginPath();
+                this.ctx.moveTo(this.halfX + this.lines[i][j-1].x, this.halfY + this.lines[i][j-1].y);
+                this.ctx.lineTo(this.halfX + this.lines[i][j].x, this.halfY + this.lines[i][j].y);
+                this.ctx.stroke();
+            }
         }
     }
 
