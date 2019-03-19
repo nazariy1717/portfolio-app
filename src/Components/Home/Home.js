@@ -8,13 +8,13 @@ class Home extends Component{
         this.ctx = '';
         this.width = window.innerWidth;
         this.height = window.innerHeight;
-        this.halfX = this.width / 2;
+        this.halfX = (this.width / 2) / 2;
         this.halfY = this.height / 2;
 
         this.lines = [];
         this.linesNumber = 4;
         this.vertices = 100;
-        this.radius = 200;
+        this.radius = 175;
         this.color = '#fdc029';
         this.simplex = new SimplexNoise();
         this.noise = 0;
@@ -55,9 +55,6 @@ class Home extends Component{
                 this.lines[i].push(point);
             }
         }
-        console.log(this.lines);
-
-
     }
 
     update(){
@@ -121,8 +118,6 @@ class Home extends Component{
                 <canvas ref="canvas" width={this.width} height={this.height}>
 
                 </canvas>
-
-                <img src="https://colorpalettes.net/wp-content/uploads/2015/06/cvetovaya-palitra-2053.png" alt=""/>
             </div>
         )
     }
