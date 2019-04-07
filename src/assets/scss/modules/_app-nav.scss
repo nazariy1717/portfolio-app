@@ -1,0 +1,18 @@
+
+.app-nav{
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  &__list{
+
+  }
+  &__item{}
+  &__link{
+    color: #fff;
+    transition: all 0.3s ease-out;
+    &.active, &:hover{
+      color: var(--col-orange);
+    }
+  }
+}

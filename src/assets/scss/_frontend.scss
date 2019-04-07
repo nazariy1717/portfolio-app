@@ -1,5 +1,9 @@
-@import 'tools/variables';
-@import 'tools/reset';
+@import './tools/variables';
+@import './base/reset';
+@import './base/typography';
+
+@import './modules/app-nav';
+@import './pages/home';
 
 
-@import 'modules/icons';
+//@import './modules/icons';

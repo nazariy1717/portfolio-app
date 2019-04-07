@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import SimplexNoise from 'simplex-noise';
+
 class Home extends Component{
 
     constructor(props){
         super(props);
         this.canvas = '';
         this.ctx = '';
-        this.width = window.innerWidth;
+        this.width = window.innerWidth / 3;
         this.height = window.innerHeight;
-        this.halfX = (this.width / 2) / 2;
+        this.halfX = this.width / 2;
         this.halfY = this.height / 2;
 
         this.lines = [];
@@ -109,15 +110,15 @@ class Home extends Component{
     }
 
     render(){
-        let divStyle = {
-            color: 'white',
-            backgroundColor: '#171820',
-        };
         return(
-            <div style={divStyle}>
-                <canvas ref="canvas" width={this.width} height={this.height}>
-
-                </canvas>
+            <div className="home">
+                <div className="home__wrapper">
+                    <canvas ref="canvas" width={this.width} height={this.height}></canvas>
+                    <div className="home__content">
+                        <h1 className="heading heading-1 home__title">Front-end <br/>developer</h1>
+                        <p className="home__subtitle">Nazar Kalinchuk</p>
+                    </div>
+                </div>
             </div>
         )
     }

@@ -1,0 +1,42 @@
+
+.home{
+  position: relative;
+  height: 100vh;
+  background-color: var(--col-blue);
+  &__wrapper{
+    position: relative;
+    padding: 0 15px;
+    max-width: 1000px;
+    margin: auto;
+    height: 100vh;
+    canvas{
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+  &__content{
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+  }
+  &__title{
+    position: relative;
+    margin-bottom: 60px;
+    &:before{
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -20px;
+      height: 2px;
+      width: 100px;
+      background-color: var(--col-orange);
+    }
+  }
+  &__subtitle{
+    font-family: 'Merriweather', serif;
+    font-size: 2em;
+  }
+}
